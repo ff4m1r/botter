@@ -1,0 +1,25 @@
+{
+    "name": "ffb255/botter",
+    "license": "MIT",
+    "description": "Build Amazing Telegram Bots with PHP",
+    "keywords": [
+        "Bot",
+        "Botter",
+        "Telegram",
+        "Chatbot"
+    ],
+    "homepage": "http://github.com/ffb255/botter",
+    "authors": [{
+        "name": "ffb255"
+    }],
+    "autoload": {
+        "psr-4": {
+            "ffb255\\Botter\\": "src/"
+        }
+    },
+    "require": {
+        "guzzlehttp/guzzle": "^6.3",
+        "lazyjsonmapper/lazyjsonmapper": "^1.6",
+        "colinmollenhour/credis": "^1.10"
+    }
+}

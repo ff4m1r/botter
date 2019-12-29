@@ -1,0 +1,5 @@
+test.php
+composer.lock
+/.vscode/
+/vendor/
+/dev/

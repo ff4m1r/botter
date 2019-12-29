@@ -1,4 +1,8 @@
-<p align="center"><img src="https://raw.githubusercontent.com/ffb255/botter/master/resources/github/logo.png"></p>
+<div align="center"><img src="https://raw.githubusercontent.com/ffb255/botter/master/resources/github/logo.png"></div>
+
+![Packagist](https://img.shields.io/packagist/l/ffb255/botter)
+![Packagist Version](https://img.shields.io/packagist/v/ffb255/botter)
+![GitHub issues](https://img.shields.io/github/issues/ffb255/botter)
 
 Botter is a PHP library, designed to build powerful [Telegram](https://telegram.org) bots in the fastest and easiest way possible.
 ```php

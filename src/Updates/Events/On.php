@@ -29,9 +29,7 @@ class On {
         if($ignoreForward && self::$botter->getUpdate()->getMessage()->isForwardDate()){
             return;
         }
-        if(is_array($pattern)){
-            !in_array($subject, $pattern) ?: $thenDo();
-        } elseif(Pattern::isEqual($pattern, $subject)){
+        if(Pattern::isEqual($pattern, $subject)){
             $thenDo();
         }
     }

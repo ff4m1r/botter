@@ -11,6 +11,11 @@ class Pattern {
      */
     public static function isEqual($pattern, $subject){
         $regex = self::isRegexPattern($pattern);
+        
+        if(is_array($pattern)){
+            in_array($subject, $pattern) ? true : false;
+        }
+
         if($regex == false){
             return ($pattern == $subject ? true : false);
         } else{

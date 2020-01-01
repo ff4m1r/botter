@@ -1,5 +1,5 @@
 <?php
-namespace ffb255\Botter\Requests\Response;
+namespace ffb255\Botter\Requests\Responses;
 
 use ffb255\Botter\Botter;
 

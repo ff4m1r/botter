@@ -2,7 +2,7 @@
 namespace ffb255\Botter\Conversations;
 
 use ffb255\Botter\Botter;
-use ffb255\Botter\Requests\Response\Answer;
+use ffb255\Botter\Requests\Responses\Answer;
 
 class Conversation {
     /**
@@ -11,7 +11,7 @@ class Conversation {
     protected $botter;
 
     /**
-     * @var \ffb255\Botter\Requests\Response\Answer
+     * @var \ffb255\Botter\Requests\Responses\Answer
      */
     protected $answer;
 
@@ -31,7 +31,7 @@ class Conversation {
     /**
      * Get user answer
      *
-     * @return \ffb255\Botter\Requests\Response\Answer
+     * @return \ffb255\Botter\Requests\Responses\Answer
      */
     public function getAnswer()
     {

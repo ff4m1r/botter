@@ -2,7 +2,7 @@
 namespace ffb255\Botter\Updates\Events;
 
 use ffb255\Botter\Botter;
-use ffb255\Botter\Requests\Response\CallbackQuery;
+use ffb255\Botter\Requests\Responses\CallbackQuery;
 
 class On {
     /**

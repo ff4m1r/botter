@@ -39,6 +39,42 @@ Check **[Wiki Pages](https://github.com/ffb255/Botter/wiki)** for documentation.
 You can find Botter methods with their examples in wiki.<br>
 Also check out [@BotterDocsBot](https://t.me/BotterDocsBot), a bot made in Botter and help you to test documentation examples output.
 
+## Conversation
+When it comes to chat bots, you probably don't want to simply react to single keywords, but instead, you might need to gather information from the user, using a conversation. Let's say, that you want your chat bot to provide an elegant user onboarding experience for your application users. In the onboarding process we are going to ask the user for their firstname and email address - that's a perfect fit for conversations! ([More on Conversation Wiki](https://github.com/ffb255/botter/wiki/Conversations))
+<div align="center"><img src="http://up.vbiran.ir/uploads/2545115778763158723_conv-shot2.png"></div>
+
+```php
+$botter = BotterFactory::create("YOUR_BOT_TOKEN");
+
+class SignupConversation extends Conversation {
+     public function start()
+     {
+          $this->say("Welcome, Whats your name?");
+          $this->next("askEmail");
+     }
+
+     public function askEmail()
+     {
+          $this->name = $this->getAnswer()->getText();
+          $this->say("Whats your email?");
+          $this->next("finishSignup");
+     }
+
+     public function finishSignup()
+     {
+          $name = $this->name;
+          $this->say("Thanks {$name}! Your account has been created.");
+          $this->finish();
+     }
+}
+
+On::text("/signup", function() use($botter){
+     $botter->startConversation(new SignupConversation);
+});
+
+$botter->listen();
+```
+
 ## Why did I make Botter?
 The goal was to simplify the process of making Telegram bots for my projects. ~2 years after I built Botter, I decided to publish it as a Open Source library.<br> 
 Of course, there are still some problems in Botter that I am constantly trying to fix them. If you find a problem you can tell me in [Issues](https://github.com/ffb255/Botter/issues).

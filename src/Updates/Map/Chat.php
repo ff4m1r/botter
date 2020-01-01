@@ -15,6 +15,7 @@ use LazyJsonMapper\LazyJsonMapper;
  * @method ChatPermissions getPermissions()
  * @method ChatPhoto getPhoto()
  * @method Message getPinnedMessage()
+ * @method int getSlowModeDelay()
  * @method string getStickerSetName()
  * @method string getTitle()
  * @method string getType()
@@ -28,6 +29,7 @@ use LazyJsonMapper\LazyJsonMapper;
  * @method bool isPermissions()
  * @method bool isPhoto()
  * @method bool isPinnedMessage()
+ * @method bool isSlowModeDelay()
  * @method bool isStickerSetName()
  * @method bool isTitle()
  * @method bool isType()
@@ -41,6 +43,7 @@ use LazyJsonMapper\LazyJsonMapper;
  * @method $this setPermissions(ChatPermissions $value)
  * @method $this setPhoto(ChatPhoto $value)
  * @method $this setPinnedMessage(Message $value)
+ * @method $this setSlowModeDelay(int $value)
  * @method $this setStickerSetName(string $value)
  * @method $this setTitle(string $value)
  * @method $this setType(string $value)
@@ -54,6 +57,7 @@ use LazyJsonMapper\LazyJsonMapper;
  * @method $this unsetPermissions()
  * @method $this unsetPhoto()
  * @method $this unsetPinnedMessage()
+ * @method $this unsetSlowModeDelay()
  * @method $this unsetStickerSetName()
  * @method $this unsetTitle()
  * @method $this unsetType()
@@ -68,6 +72,7 @@ use LazyJsonMapper\LazyJsonMapper;
  * @property ChatPermissions $permissions
  * @property ChatPhoto $photo
  * @property Message $pinned_message
+ * @property int $slow_mode_delay
  * @property string $sticker_set_name
  * @property string $title
  * @property string $type
@@ -89,5 +94,6 @@ class Chat extends LazyJsonMapper
         'permissions'           => 'ChatPermissions',
         'sticker_set_name'      => 'string',
         'can_set_sticker_set'   => 'bool',
+        'slow_mode_delay'       => 'int',
     ];
 }

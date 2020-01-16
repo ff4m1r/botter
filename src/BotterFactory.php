@@ -13,30 +13,30 @@ class BotterFactory
     /**
      * Create a new Botter instance
      *
-     * @param string $token
+     * @param array $config
      * @param Interfaces\CacheInterface $storage
      * @param Interfaces\HttpInterface $httpClient
      * @param string $incomingUpdate as json
      * @return Botter
      */
     public static function create(
-        $token,
+        $config,
         CacheInterface $storage = null,
-        HttpInterface $httpClient = null,
-        $incomingUpdate = null
+        HttpInterface $httpClient = null
     ){
         if(empty($storage)){
             $storage = new JsonCache();
         }
         if(empty($httpClient)){
-            $httpClient = new Guzzle($token);
+            $httpClient = new Guzzle($config['token'], $config['http'] ?? []);
         }
-        if(empty($incomingUpdate)){
-            $incomingUpdate = file_get_contents('php://input');
-        }
-        
+
+        $incomingUpdate = isset($config['dummy_update']) ? $config['dummy_update'] : file_get_contents('php://input');
+
         $update = new Update(json_decode($incomingUpdate, true));
         $botter = new Botter($update, $httpClient, $storage);
+
+        // Sorry for this un-standard line :KEKW
         On::__setup($botter);
 
         return $botter;

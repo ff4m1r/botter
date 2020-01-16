@@ -11,7 +11,10 @@ require_once "vendor/autoload.php";
 use ffb255\Botter\BotterFactory;
 use ffb255\Botter\Updates\Events\On;
 
-$botter = BotterFactory::create("YOUR_BOT_TOKEN");
+$config = [
+     'token' => "YOUR_BOT_TOKEN"
+];
+$botter = BotterFactory::create($config);
 
 On::text("/start", function() use ($botter) {
     $botter->reply("Hello user!");
@@ -44,7 +47,10 @@ When it comes to chat bots, you probably don't want to simply react to single ke
 <div align="center"><img src="http://up.vbiran.ir/uploads/2545115778763158723_conv-shot2.png"></div>
 
 ```php
-$botter = BotterFactory::create("YOUR_BOT_TOKEN");
+$config = [
+     'token' => "YOUR_BOT_TOKEN"
+];
+$botter = BotterFactory::create($config);
 
 class SignupConversation extends Conversation {
      public function start()

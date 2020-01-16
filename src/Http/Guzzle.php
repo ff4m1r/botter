@@ -22,13 +22,13 @@ class Guzzle implements HttpInterface
      *
      * @param string $token
      */
-    public function __construct($token)
+    public function __construct($token, $config)
     {
         $this->token = $token;
         $baseURL = sprintf(APIConstants::BASE_API_URL, $token);
         $this->client = new Client([
             'base_uri' => $baseURL,
-            'timeout'  => 10.0,
+            'timeout'  => isset($config['timeout']) ? $config['timeout'] : APIConstants::HTTP_DEFAULT_TIMEOUT,
             'http_errors' => false
         ]);
     }
@@ -60,7 +60,7 @@ class Guzzle implements HttpInterface
     }
 
     /**
-     * Make a HTTP GET request
+     * Make a HTTP GET reques
      *
      * @param string $method
      * @param array $data

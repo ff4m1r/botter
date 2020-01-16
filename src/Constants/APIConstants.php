@@ -17,4 +17,6 @@ class APIConstants
         'sticker',
         'png_sticker'
     ];
+
+    const HTTP_DEFAULT_TIMEOUT = 10.0;
 }

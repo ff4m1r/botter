@@ -7,8 +7,9 @@ interface HttpInterface
      * Class constructor
      *
      * @param string $token
+     * @param array $config
      */
-    public function __construct($token);
+    public function __construct($token, $config);
 
     /**
      * Make a HTTP GET request

@@ -8,6 +8,7 @@ use ffb255\Botter\Cache\Drivers\JsonCache;
 use ffb255\Botter\Interfaces\HttpInterface;
 use ffb255\Botter\Interfaces\CacheInterface;
 use ffb255\Botter\Exceptions\Core\UnexpectedValueException;
+use RuntimeException;
 
 class BotterFactory
 {
@@ -35,8 +36,11 @@ class BotterFactory
             $httpClient = new Guzzle($config['token'], $config['http'] ?? []);
         }
 
-        $incomingUpdate = isset($config['dummy_update']) ? $config['dummy_update'] : file_get_contents('php://input');
-
+        $incomingUpdate = $config['dummy_update'] ?? file_get_contents('php://input');
+        if(is_null($incomingUpdate) || $incomingUpdate == ""){
+            throw new RuntimeException("Botter only works with webhook. Please set a webhook for your bot instead of direct execution");
+        }
+        
         $update = new Update(json_decode($incomingUpdate, true));
         $botter = new Botter($update, $httpClient, $storage);
 

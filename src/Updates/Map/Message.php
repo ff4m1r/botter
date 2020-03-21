@@ -48,6 +48,7 @@ use LazyJsonMapper\LazyJsonMapper;
  * @method Sticker getSticker()
  * @method SuccessfulPayment getSuccessfulPayment()
  * @method bool getSupergroupChatCreated()
+ * @method string getText()
  * @method Venue getVenue()
  * @method Video getVideo()
  * @method VideoNote getVideoNote()

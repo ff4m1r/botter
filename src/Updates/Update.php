@@ -14,6 +14,7 @@ use LazyJsonMapper\LazyJsonMapper;
  * @method Map\InlineQuery getInlineQuery()
  * @method Map\Message getMessage()
  * @method Map\Poll getPoll()
+ * @method Map\PollAnswer getPollAnswer()
  * @method Map\PreCheckoutQuery getPreCheckoutQuery()
  * @method Map\ShippingQuery getShippingQuery()
  * @method int getUpdateId()
@@ -25,6 +26,7 @@ use LazyJsonMapper\LazyJsonMapper;
  * @method bool isInlineQuery()
  * @method bool isMessage()
  * @method bool isPoll()
+ * @method bool isPollAnswer()
  * @method bool isPreCheckoutQuery()
  * @method bool isShippingQuery()
  * @method bool isUpdateId()
@@ -36,6 +38,7 @@ use LazyJsonMapper\LazyJsonMapper;
  * @method $this setInlineQuery(Map\InlineQuery $value)
  * @method $this setMessage(Map\Message $value)
  * @method $this setPoll(Map\Poll $value)
+ * @method $this setPollAnswer(Map\PollAnswer $value)
  * @method $this setPreCheckoutQuery(Map\PreCheckoutQuery $value)
  * @method $this setShippingQuery(Map\ShippingQuery $value)
  * @method $this setUpdateId(int $value)
@@ -47,6 +50,7 @@ use LazyJsonMapper\LazyJsonMapper;
  * @method $this unsetInlineQuery()
  * @method $this unsetMessage()
  * @method $this unsetPoll()
+ * @method $this unsetPollAnswer()
  * @method $this unsetPreCheckoutQuery()
  * @method $this unsetShippingQuery()
  * @method $this unsetUpdateId()
@@ -59,6 +63,7 @@ use LazyJsonMapper\LazyJsonMapper;
  * @property Map\InlineQuery $inline_query
  * @property Map\Message $message
  * @property Map\Poll $poll
+ * @property Map\PollAnswer $poll_answer
  * @property Map\PreCheckoutQuery $pre_checkout_query
  * @property Map\ShippingQuery $shipping_query
  * @property int $update_id
@@ -77,5 +82,6 @@ class Update extends LazyJsonMapper
         'shipping_query'        => 'Map\ShippingQuery',
         'pre_checkout_query'    => 'Map\PreCheckoutQuery',
         'poll'                  => 'Map\Poll',
+        'poll_answer'           => 'Map\PollAnswer'
     ];
 }

@@ -40,7 +40,6 @@ composer require ffb255/botter
 ## Documentation
 Check **[Wiki Pages](https://github.com/ffb255/Botter/wiki)** for documentation.<br>
 You can find Botter methods with their examples in wiki.<br>
-Also, check out [@BotterDocsBot](https://t.me/BotterDocsBot), a bot made in Botter, and help you to test documentation examples output.
 
 ## Conversation
 When it comes to chatbots, you probably don't want to react to single keywords, but instead, you might need to gather information from the user, using a conversation. Let's say that you want your chatbot to provide a rich user onboarding experience for your application users. In the onboarding process, we are going to ask the user for their first name and email address - that's a perfect fit for conversations! ([More on Conversation Wiki](https://github.com/ffb255/botter/wiki/Conversations))

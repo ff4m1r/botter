@@ -19,7 +19,7 @@ class Storage {
     private $prefix;
 
     /**
-     * Defult key (Identification Key)
+     * Default key (Identification Key)
      * 
      * @var Interfaces\CacheInterface
      */
@@ -35,7 +35,7 @@ class Storage {
     /**
      * Storage constructor.
      *
-     * @param \ffb255\Botter\Interfaces\CacheInterface $driver
+     * @param CacheInterface $driver
      * @param integer $expireAfter in second
      */
     public function __construct(CacheInterface $driver, $expireAfter = 0)
@@ -46,10 +46,10 @@ class Storage {
     }
 
     /**
-     * Set uniqe prefix for different storage level
+     * Sets unique prefix for storage
      *
      * @param string $prefix
-     * @return void
+     * @return $this
      */
     public function setPrefix($prefix)
     {
@@ -58,10 +58,10 @@ class Storage {
     }
 
     /**
-     * Set identification key for this user 
+     * Sets identification key for this user
      *
      * @param string $defaultKey
-     * @return void
+     * @return $this
      */
     public function setDefaultKey($defaultKey)
     {
@@ -72,7 +72,7 @@ class Storage {
     /**
      * Return a instance of current storage drivate
      *
-     * @return \ffb255\Botter\Interfaces\CacheInterface
+     * @return CacheInterface
      */
     public function getDriver()
     {
@@ -103,8 +103,7 @@ class Storage {
      */
     public function get($key)
     {
-        $value = $this->getDriver()->get($this->generateKey($key));
-        return $value;
+        return $this->getDriver()->get($this->generateKey($key));
     }
 
     /**
@@ -124,12 +123,13 @@ class Storage {
      * Delete a key
      *
      * @param string $key
-     * @return void
+     * @return bool
      */
     public function delete($key)
     {
         try {
             $this->getDriver()->delete($this->generateKey($key));
+            return true;
         } catch(Exception $e) {
             return false;
         }

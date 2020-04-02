@@ -1,12 +1,12 @@
 <?php
 namespace ffb255\Botter\Traits;
 
-use ffb255\Botter\Cache\Storage\Storage;
+use ffb255\Botter\Cache\Storage;
 
 trait StorageProviderTrait
 {
     /**
-     * @return \ffb255\Botter\Cache\Storage\Storage
+     * @return Storage
      */
     public function userStorage()
     {
@@ -16,7 +16,7 @@ trait StorageProviderTrait
     }
     
     /**
-     * @return \ffb255\Botter\Cache\Storage\Storage
+     * @return Storage
      */
     public function chatStorage()
     {
@@ -26,7 +26,7 @@ trait StorageProviderTrait
     }
 
     /**
-     * @return \ffb255\Botter\Cache\Storage\Storage
+     * @return Storage
      */
     public function globalStorage()
     {
@@ -36,7 +36,7 @@ trait StorageProviderTrait
     }
 
     /**
-     * @return \ffb255\Botter\Cache\Storage\Storage
+     * @return Storage
      */
     public function conversationStorage()
     {

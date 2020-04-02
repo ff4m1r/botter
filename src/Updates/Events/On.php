@@ -29,8 +29,10 @@ class On {
         if($ignoreForward && self::$botter->getUpdate()->getMessage()->isForwardDate()){
             return;
         }
-        if(Pattern::isEqual($pattern, $subject)){
-            $thenDo();
+
+        $regexPattern = Pattern::checkPattern($pattern, $subject);
+        if(is_array($regexPattern)){
+            call_user_func_array($thenDo, $regexPattern);
         }
     }
 
@@ -143,7 +145,7 @@ class On {
     {
         if(self::$botter->getUpdate()->isCallbackQuery()){
             $subject = self::$botter->getUpdate()->getCallbackQuery()->getData();
-            if(Pattern::isEqual($pattern, $subject)){
+            if(Pattern::checkPattern($pattern, $subject)){
                 // $callback = new CallbackQuery(self::$botter);
                 $thenDo();
             }

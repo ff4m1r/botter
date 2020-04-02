@@ -3,23 +3,32 @@ namespace ffb255\Botter\Updates\Events;
 
 class Pattern {
     /**
-     * Is equal your pattern with your subject or not
+     * Checks whether subject string matches pattern or not
+     * Returns false on errors otherwise an array of named parameter
      *
      * @param string $pattern
      * @param string $subject
-     * @return boolean
+     * @return mixed
      */
-    public static function isEqual($pattern, $subject){
+    public static function checkPattern($pattern, $subject){
         $regex = self::isRegexPattern($pattern);
         
         if(is_array($pattern)){
-            in_array($subject, $pattern) ? true : false;
+            in_array($subject, $pattern) ? [] : false;
         }
 
         if($regex == false){
-            return ($pattern == $subject ? true : false);
+            return ($pattern == $subject ? [] : false);
         } else{
-            return (preg_match("/$regex/", $subject) == 1 ? true : false);
+            // Pattern is a regex
+            preg_match("/$regex/", $subject, $params);
+            if (count($params) <= 0) {
+                return false;
+            } else {
+                $params = array_filter($params, "is_string", ARRAY_FILTER_USE_KEY); // filters named parameters
+                return $params;
+            }
+
         }
     }
 

@@ -17,6 +17,7 @@ use LazyJsonMapper\LazyJsonMapper;
  * @method Contact getContact()
  * @method int getDate()
  * @method bool getDeleteChatPhoto()
+ * @method Dice getDice()
  * @method Document getDocument()
  * @method int getEditDate()
  * @method MessageEntity[] getEntities()
@@ -64,6 +65,7 @@ use LazyJsonMapper\LazyJsonMapper;
  * @method bool isContact()
  * @method bool isDate()
  * @method bool isDeleteChatPhoto()
+ * @method bool isDice()
  * @method bool isDocument()
  * @method bool isEditDate()
  * @method bool isEntities()
@@ -111,6 +113,7 @@ use LazyJsonMapper\LazyJsonMapper;
  * @method $this setContact(Contact $value)
  * @method $this setDate(int $value)
  * @method $this setDeleteChatPhoto(bool $value)
+ * @method $this setDice(Dice $value)
  * @method $this setDocument(Document $value)
  * @method $this setEditDate(int $value)
  * @method $this setEntities(MessageEntity[] $value)
@@ -158,6 +161,7 @@ use LazyJsonMapper\LazyJsonMapper;
  * @method $this unsetContact()
  * @method $this unsetDate()
  * @method $this unsetDeleteChatPhoto()
+ * @method $this unsetDice()
  * @method $this unsetDocument()
  * @method $this unsetEditDate()
  * @method $this unsetEntities()
@@ -206,6 +210,7 @@ use LazyJsonMapper\LazyJsonMapper;
  * @property Contact $contact
  * @property int $date
  * @property bool $delete_chat_photo
+ * @property Dice $dice
  * @property Document $document
  * @property int $edit_date
  * @property MessageEntity[] $entities
@@ -277,6 +282,7 @@ class Message extends LazyJsonMapper
         'location'                  => 'Location',
         'venue'                     => 'Venue',
         'poll'                      => 'Poll',
+        'dice'                      => 'Dice',
         'new_chat_members'          => 'User[]',
         'left_chat_member'          => 'User',
         'new_chat_title'            => 'string',

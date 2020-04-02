@@ -1,5 +1,5 @@
 <?php
-namespace ffb255\Botter\Cache\Storage;
+namespace ffb255\Botter\Cache;
 
 use Exception;
 use ffb255\Botter\Conversations\Inject;

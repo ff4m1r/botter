@@ -4,7 +4,7 @@ namespace ffb255\Botter;
 use ffb255\Botter\Conversations\Conversation;
 use ffb255\Botter\Interfaces\CacheInterface;
 use ffb255\Botter\Updates\Update;
-use ffb255\Botter\Requests\RequestBuidler;
+use ffb255\Botter\Requests\RequestBuilder;
 use ffb255\Botter\Interfaces\HttpInterface;
 use ffb255\Botter\Traits\ReqestProviderTraits;
 use ffb255\Botter\Traits\StorageProviderTrait;
@@ -64,11 +64,11 @@ class Botter
      * Return an instance of RequestBuidler()
      * Request Builder help you to make an HTTP requests to telegam servers
      *
-     * @return Requests\RequestBuidler
+     * @return Requests\RequestBuilder
      */
     public function buildRequest($method)
     {
-        $requestBuilder = new RequestBuidler($this->httpClient, $method, $this->additionalParameter);
+        $requestBuilder = new RequestBuilder($this->httpClient, $method, $this->additionalParameter);
         $this->additionalParameter = [];
         return $requestBuilder;
     }

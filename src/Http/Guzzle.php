@@ -66,7 +66,7 @@ class Guzzle implements HttpInterface
      * @param array $data
      * @return void
      */
-    public function get($method, $data = [])
+    public function post($method, $data = [])
     {
         $data = $this->convertToMultipart($data);
         return $this->client->request('POST', $method, [

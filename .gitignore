@@ -3,3 +3,4 @@ composer.lock
 /.vscode/
 /vendor/
 /dev/
+/.idea/

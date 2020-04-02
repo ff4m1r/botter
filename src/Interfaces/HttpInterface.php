@@ -18,7 +18,7 @@ interface HttpInterface
      * @param array $data
      * @return void
      */
-    public function get($method, $data);
+    public function post($method, $data);
 
     /**
      * Return a resource from local

@@ -4,7 +4,7 @@ namespace ffb255\Botter\Requests;
 use ffb255\Botter\Constants\APIConstants;
 use ffb255\Botter\Interfaces\HttpInterface;
 
-class RequestBuidler
+class RequestBuilder
 {
     private $method;
     private $data = [];
@@ -56,7 +56,7 @@ class RequestBuidler
     {
         $this->addData($this->additionalParameter);
         // echo json_encode($this->data, JSON_PRETTY_PRINT);
-        $result = $this->httpClient->get($this->method, $this->data);
+        $result = $this->httpClient->post($this->method, $this->data);
         return json_decode($result->getBody());
     }
 

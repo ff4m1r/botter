@@ -93,32 +93,18 @@ class Botter
     }
 
     /**
-     * Start a new Conversation with user
+     * Starts a new Conversation with user
+     * By default, start() is first step in conversation
      *
      * @param Conversations\Conversation $conversation
+     * @param string $startFromMethod Conversation first step (default first step is start)
      * @return void
      */
-    public function startConversation(Conversation $conversation)
+    public function startConversation(Conversation $conversation, $startFromMethod='start')
     {
         $this->conversationStorage()->save('active', get_class($conversation));
-        $this->conversationStorage()->save('nextMethod', 'start');
+        $this->conversationStorage()->save('nextMethod', $startFromMethod);
         $this->listen();
-    }
-
-    /**
-     * Undocumented function (in testing)
-     *
-     * @param Conversations\Conversation $conversation
-     * @param string $startFromMethod
-     * @return void
-     */
-    public function resumeConversation(Conversation $conversation, $startFromMethod)
-    {
-        $conversation = get_class($conversation);
-        $conversation = new $conversation();
-        $conversation->setup($this);
-        $conversation->$startFromMethod();
-        return;
     }
 
     /**

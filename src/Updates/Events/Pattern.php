@@ -25,7 +25,8 @@ class Pattern {
             if (count($params) <= 0) {
                 return false;
             } else {
-                $params = array_filter($params, "is_string", ARRAY_FILTER_USE_KEY); // filters named parameters
+                //$params = array_filter($params, "is_string", ARRAY_FILTER_USE_KEY); // filters named parameters
+                 array_shift($params);
                 return $params;
             }
 

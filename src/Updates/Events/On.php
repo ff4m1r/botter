@@ -30,9 +30,10 @@ class On {
             return;
         }
 
-        $regexPattern = Pattern::checkPattern($pattern, $subject);
-        if(is_array($regexPattern)){
-            call_user_func_array($thenDo, $regexPattern);
+        $regexParams = Pattern::checkPattern($pattern, $subject);
+
+        if(is_array($regexParams)){
+            call_user_func_array($thenDo, $regexParams);
         }
     }
 

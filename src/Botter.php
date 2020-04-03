@@ -102,6 +102,7 @@ class Botter
     {
         $this->conversationStorage()->save('active', get_class($conversation));
         $this->conversationStorage()->save('nextMethod', 'start');
+        $this->listen();
     }
 
     /**
@@ -145,7 +146,7 @@ class Botter
 
             $nextMethod = $this->conversationStorage()->get('nextMethod');
             $conversation->$nextMethod();
-            return;
+            exit();
         }
     }
 }

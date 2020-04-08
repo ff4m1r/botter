@@ -20,6 +20,7 @@
     "require": {
         "guzzlehttp/guzzle": "^6.3",
         "lazyjsonmapper/lazyjsonmapper": "^1.6",
-        "colinmollenhour/credis": "^1.10"
+        "colinmollenhour/credis": "^1.10",
+        "ext-json": "*"
     }
 }

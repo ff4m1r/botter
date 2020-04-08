@@ -9,7 +9,7 @@ class Button extends BaseButton{
     /**
      * Create an instance of a button (Normal Button)
      *
-     * @param strign $text
+     * @param string $text
      * @return $this
      */
     public static function create($text)

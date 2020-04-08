@@ -6,19 +6,19 @@ use ffb255\Botter\Requests\Responses\Answer;
 
 class Conversation {
     /**
-     * @var \ffb255\Botter\Botter
+     * @var Botter
      */
     protected $botter;
 
     /**
-     * @var \ffb255\Botter\Requests\Responses\Answer
+     * @var Answer
      */
     protected $answer;
 
     /**
      * Initial conversations
      *
-     * @param \ffb255\Botter\Botter $botter
+     * @param Botter $botter
      * @return $this
      */
     public function setup(Botter $botter)
@@ -31,7 +31,7 @@ class Conversation {
     /**
      * Get user answer
      *
-     * @return \ffb255\Botter\Requests\Responses\Answer
+     * @return Answer
      */
     public function getAnswer()
     {
@@ -41,13 +41,13 @@ class Conversation {
     /**
      * Ask a question from user
      *
-     * @param mixed $ask
+     * @param string|callable $question
      * @return $this
      */
-    public function ask($ask)
+    public function ask($question)
     {
         if ($this->botter->conversationStorage()->get('askThen') != 'then') {
-            is_callable($ask) ? $ask() : $this->say($ask);
+            is_callable($question) ? $question() : $this->say($question);
         }
         return $this;
     }
@@ -57,7 +57,7 @@ class Conversation {
      * to check user answer (validation)
      *
      * @param callable $thenDo
-     * @return void
+     * @return Conversation
      */
     public function then(callable $thenDo)
     {
@@ -109,7 +109,7 @@ class Conversation {
     /**
      * Jump into specific step on conversation
      *
-     * @param strign $methodName
+     * @param string $methodName
      * @return void
      */
     public function jumpTo($methodName)
@@ -146,7 +146,7 @@ class Conversation {
      * Getter, used for cache system on conversation (call get() on cache storage)
      *
      * @param [type] $key
-     * @return void
+     * @return string
      */
     public function __get($key)
     {

@@ -7,7 +7,7 @@ use ffb255\Botter\Interfaces\CacheInterface;
 
 class Storage {
     /**
-     * @var Interfaces\CacheInterface
+     * @var ..\Interfaces\CacheInterface
      */
     private $driver;
 
@@ -21,7 +21,7 @@ class Storage {
     /**
      * Default key (Identification Key)
      * 
-     * @var Interfaces\CacheInterface
+     * @var ..\Interfaces\CacheInterface
      */
     private $defaultKey;
 
@@ -70,7 +70,7 @@ class Storage {
     }
 
     /**
-     * Return a instance of current storage drivate
+     * Return a instance of current storage drivers
      *
      * @return CacheInterface
      */

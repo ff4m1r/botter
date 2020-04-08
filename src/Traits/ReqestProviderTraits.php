@@ -20,7 +20,7 @@ trait ReqestProviderTraits
     }
 
     /**
-     * Send a message to user (+ reply to messaeg)
+     * Send a message to user (+ replies to the message)
      *
      * @param string $text
      * @param string $parseMode

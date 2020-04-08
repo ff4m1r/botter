@@ -13,7 +13,7 @@ class RequestBuilder
     /**
      * Class constructor
      *
-     * @param \ffb255\Botter\Interfaces\HttpInterface $httpClient
+     * @param HttpInterface $httpClient
      * @param string $method
      * @param array $additionalParameter
      */
@@ -62,7 +62,7 @@ class RequestBuilder
 
     /**
      * Detect type of input (url, path or file id) to send media to user
-     * Uploadable fileds uses path
+     * Uploadable fields uses path
      *
      * @param mixed $string
      * @return string
@@ -78,7 +78,7 @@ class RequestBuilder
     }
 
     /**
-     * Get gile from path
+     * Get the file from path
      *
      * @param string $file
      * @return resource

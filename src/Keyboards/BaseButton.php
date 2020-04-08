@@ -6,7 +6,7 @@ class BaseButton {
      * Class constructor
      * Return an instance of BaseButton
      *
-     * @param strign $text
+     * @param string $text
      * @return $this
      */
     public function __construct($text)

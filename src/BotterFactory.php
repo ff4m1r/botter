@@ -18,8 +18,8 @@ class BotterFactory
      * @param array $config
      * @param Interfaces\CacheInterface $storage
      * @param Interfaces\HttpInterface $httpClient
-     * @param string $incomingUpdate as json
      * @return Botter
+     * @throws UnexpectedValueException
      */
     public static function create(
         $config,

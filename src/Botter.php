@@ -61,9 +61,10 @@ class Botter
     }
 
     /**
-     * Return an instance of RequestBuidler()
-     * Request Builder help you to make an HTTP requests to telegam servers
+     * Return an instance of RequestBuilder()
+     * Request Builder help you to make an HTTP requests to telegram servers
      *
+     * @param $method
      * @return Requests\RequestBuilder
      */
     public function buildRequest($method)
@@ -78,7 +79,7 @@ class Botter
      *
      * @return string
      */
-    public function getCurrentCoversation()
+    public function getCurrentConversation()
     {
         return $this->conversationStorage()->get('active');
     }
@@ -88,7 +89,7 @@ class Botter
      */
     public function isOnConversation()
     {
-        $activeConversation = $this->getCurrentCoversation();
+        $activeConversation = $this->getCurrentConversation();
         return (is_null($activeConversation) || $activeConversation == '') ? false : true;
     }
 
@@ -119,14 +120,14 @@ class Botter
     }
 
     /**
-     * Try to match conversation (if uesr is in conversation)
+     * Try to match conversation (if user is in conversation)
      *
      * @return void
      */
     public function listen()
     {
         if($this->isOnConversation()){
-            $conversation = $this->getCurrentCoversation();
+            $conversation = $this->getCurrentConversation();
             $conversation = new $conversation();
             $conversation->setup($this);
 

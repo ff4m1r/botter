@@ -1,6 +1,7 @@
 <?php
 namespace ffb255\Botter;
 
+use BadMethodCallException;
 use ffb255\Botter\Conversations\Conversation;
 use ffb255\Botter\Interfaces\CacheInterface;
 use ffb255\Botter\Updates\Update;
@@ -123,6 +124,7 @@ class Botter
      * Try to match conversation (if user is in conversation)
      *
      * @return void
+     * @throws BadMethodCallException
      */
     public function listen()
     {
@@ -132,8 +134,16 @@ class Botter
             $conversation->setup($this);
 
             $nextMethod = $this->conversationStorage()->get('nextMethod');
-            $conversation->$nextMethod();
-            exit();
+            if ($nextMethod == "") {
+                // Conversation has been finished
+                return;
+            } elseif (!method_exists($conversation, $nextMethod)) {
+                $className = get_class($conversation);
+                throw new BadMethodCallException("Method {$nextMethod} doesn't exists in {$className}");
+            } else {
+                $conversation->$nextMethod();
+                exit();
+            }
         }
     }
 }

@@ -25,6 +25,11 @@ class Conversation {
     {
         $this->botter = $botter;
         $this->answer = new Answer($this->botter);
+
+        if (method_exists($this, "boot")) {
+            $this->boot();
+        }
+
         return $this;
     }
 

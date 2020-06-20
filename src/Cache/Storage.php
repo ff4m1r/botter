@@ -19,6 +19,13 @@ class Storage {
     private $prefix;
 
     /**
+     * Bot name
+     * 
+     * @var string
+     */
+    private $botName;
+
+    /**
      * Default key (Identification Key)
      * 
      * @var ..\Interfaces\CacheInterface
@@ -42,6 +49,20 @@ class Storage {
     {
         $this->driver = $driver;
         $this->expireAfter = $expireAfter;
+        return $this;
+    }
+
+    /**
+     * Sets a unique name for keys
+     * It may help to people who want to have
+     * more than 1 bot in same machine
+     *
+     * @param string $botName
+     * @return $this
+     */
+    public function setBotName($botName)
+    {
+        $this->setBotName = $botName;
         return $this;
     }
 
@@ -153,6 +174,6 @@ class Storage {
      * @return string
      */
     private function generateKey($key){
-        return "{$this->prefix}-{$this->defaultKey}-{$key}";
+        return "{$this->botName}-{$this->prefix}-{$this->defaultKey}-{$key}";
     }
 }

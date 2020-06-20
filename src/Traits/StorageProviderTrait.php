@@ -11,6 +11,7 @@ trait StorageProviderTrait
     public function userStorage()
     {
         return (new Storage($this->storage))
+            ->setBotName($this->botName)
             ->setPrefix('user_')
             ->setDefaultKey($this->getUserId());
     }
@@ -31,6 +32,7 @@ trait StorageProviderTrait
     public function globalStorage()
     {
         return (new Storage($this->storage))
+            ->setBotName($this->botName)
             ->setPrefix('global_')
             ->setDefaultKey('gb');
     }
@@ -41,6 +43,7 @@ trait StorageProviderTrait
     public function conversationStorage()
     {
         return (new Storage($this->storage))
+            ->setBotName($this->botName)
             ->setPrefix('btcnv_')
             ->setDefaultKey($this->getUserId());
     }

@@ -26,6 +26,12 @@ class BotterFactory
         CacheInterface $storage = null,
         HttpInterface $httpClient = null
     ){
+        if(isset($config['name'])){
+            $botName = $config['name'];
+        } else {
+            $botName = 'bt';
+        }
+
         if(empty($storage)){
             $storage = new JsonCache();
         }
@@ -42,7 +48,7 @@ class BotterFactory
         }
         
         $update = new Update(json_decode($incomingUpdate, true));
-        $botter = new Botter($update, $httpClient, $storage);
+        $botter = new Botter($update, $httpClient, $storage, $botName);
 
         // Sorry for this un-standard line :KEKW
         On::__setup($botter);

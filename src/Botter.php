@@ -37,6 +37,9 @@ class Botter
     /** @var array */
     private $additionalParameter = [];
 
+    /** @var string */
+    private $botName = null;
+
     /**
      * Botter constructor.
      * 
@@ -44,11 +47,12 @@ class Botter
      * @param Interfaces\HttpInterface $httpClient
      * @param Interfaces\CacheInterface $storage
      */
-    public function __construct(Update $update, HttpInterface $httpClient, CacheInterface $storage)
+    public function __construct(Update $update, HttpInterface $httpClient, CacheInterface $storage, string $botName)
     {
         $this->update = $update;
         $this->httpClient = $httpClient;
         $this->storage = $storage;
+        $this->botName = $botName;
     }
 
     /**
